@@ -1,17 +1,16 @@
 {
-    "name": "ReadMe Generator",
-    "version": "0.0.0",
-    "description": "John's readme generator project",
-    "main": "index.js",
-    "scripts": {
-      "start": "node index.js",
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-      "inquirer": "8.2.4"
-    }
+  "name":"ReadMe",
+  "version": "0.0.0",
+  "description": "John's readme generator project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "8.2.4"
   }
-  
+}

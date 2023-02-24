@@ -2,11 +2,11 @@
 const inquirer = require('inquirer');
 
 const fs = require('fs');
-
-import generateMarkdown from './utils/generateMarkdown';
+const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
-inquirer.prompt([
+const promptUser = () => {
+    return inquirer.prompt([
     {
         type: 'input',
         message: 'What is your project title?',
@@ -54,28 +54,28 @@ inquirer.prompt([
         name: 'email'
     },
     
-])
-.then((answers) => {
-    console.log(answers);
-})
-
-
-
-
-
-
-
+])}
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFile('readme2.md', process.argv[2], (err) =>
+function writeToFile(info) {
+    fs.writeFile('readme2.md', info, (err) =>
    err ? console.error(err) : console.log('Success!')
  );
 }
 
 // TODO: Create a function to initialize app
-function init() {
-    }
+const init = () => {
+    promptUser()
+     
+      .then((answers) => {
+       const info = generateMarkdown(answers)
+  
+       writeToFile(info)
+    })
+     
+
+      .catch((err) => console.error(err));
+  };
 
 // Function call to initialize app
 init();
