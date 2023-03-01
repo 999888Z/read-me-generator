@@ -1,37 +1,64 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {
-  if(license === "Apache License 2.0") {
-    return 
-    
-  }
-  else if(license === "MIT License") {
-    return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
-  }
-  else if(license === "GNU General Public License v3.0") {
-    return 
 
+// Created a function that returns the license link
+
+function getLicenseKeyword(license) {
+  let licenseKey = {};
+
+  if (license === 'Apache') {
+    licenseKey = {
+      badgeKey: 'Apache%202.0-blue.svg',
+      linkKey: 'Apache-2.0',
+    }
   }
-  else {
-    return ""
+  else if (license === 'Eclipse') {
+    licenseKey = {
+      badgeKey: 'EPL%201.0-red.svg',
+      linkKey: 'EPL-1.0',
+    }
   }
+  else if (license === 'IBM') {
+    licenseKey = {
+      badgeKey: 'IPL%201.0-blue.svg',
+      linkKey: 'IPL-1.0',
+    }
+  }
+  else if (license === 'ISC') {
+    licenseKey = {
+      badgeKey: 'ISC-blue.svg',
+      linkKey: 'IPL',
+    }
+  }
+  else if (license === 'MIT') {
+    licenseKey = {
+      badgeKey: 'MIT-yellow.svg',
+      linkKey: 'MIT',
+    }
+  }
+
+
+  return licenseKey;
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {
- 
+// Created a function that returns a license badge based on which license is passed in
+
+function renderLicenseBadgeLink(license) {
+
+  if (license === '') {
+    return;
+  }
+
+  const licenseKey = getLicenseKeyword(license);
+
+  return `[![License](https://img.shields.io/badge/License-${licenseKey.badgeKey})](https://opensource.org/licenses/${licenseKey.linkKey})`;
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
 
-// TODO: Create a function to generate markdown for README
+
+// Created a function to generate markdown for README
 function generateMarkdown(answers) {
   return `
 # ${answers.title} 
-${renderLicenseBadge(answers.license)}
+${renderLicenseBadgeLink(answers.license)}
 ## Description
 ${answers.description}
 ## Table of Contents
@@ -46,7 +73,7 @@ ${answers.installation}
 ## Usage
 ${answers.usage}
 ## License
-This application is licensed under ${answers.license}
+This application is licensed under ${answers.license}.
 ## Contributing
 ${answers.contributing}
 ## Tests 

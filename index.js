@@ -1,10 +1,10 @@
-// TODO: Include packages needed for this application
+// Added packages needed for this application
 const inquirer = require('inquirer');
 
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
-// TODO: Create an array of questions for user input
+// Created an array of questions for user input
 const promptUser = () => {
     return inquirer.prompt([
     {
@@ -40,7 +40,7 @@ const promptUser = () => {
     {
         type: 'list',
         message: 'Choose a license.',
-        choices: [ "Apache License 2.0", "GNU General Public License v3.0", "MIT License"], 
+        choices: ["Apache", "Eclipse", "IBM", "ISC", "MIT"], 
         name: 'license'
     },
     {
@@ -56,14 +56,14 @@ const promptUser = () => {
     
 ])}
 
-// TODO: Create a function to write README file
+//Created a function to write README file
 function writeToFile(info) {
-    fs.writeFile('readme2.md', info, (err) =>
+    fs.writeFile('./sample/readme2.md', info, (err) =>
    err ? console.error(err) : console.log('Success!')
  );
 }
 
-// TODO: Create a function to initialize app
+// Created a function to initialize app
 const init = () => {
     promptUser()
      
