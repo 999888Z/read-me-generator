@@ -2,6 +2,8 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Description
 This is a project using Node.js to dynamically build a professional README markdown file.
+## Walkthrough Video
+https://drive.google.com/file/d/1rNvNOqzrjaSxbslQEHLLtHy8CXlAScEy/view
 ## Table of Contents
 - [Installation](#Installation)
 - [Usage](#Usage)
